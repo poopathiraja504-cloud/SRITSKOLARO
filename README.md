@@ -50,6 +50,12 @@ Optional arguments:
 
 The temporary Web options file and generated service worker are removed after the script exits. Supply a VAPID key to enable Web Push.
 
+## Netlify Web deployment
+
+Connect the `poopathiraja504-cloud/SRITSKOLARO` GitHub repository to a Netlify site. The checked-in `netlify.toml` builds and publishes `build/web`, and rewrites client-side routes to `index.html`. In the Netlify site's build environment variables, set `FIREBASE_WEB_API_KEY` to the Web app API key from Firebase Console. Google OAuth and Web Push are optional; if used, also set `GOOGLE_WEB_CLIENT_ID` and `FIREBASE_VAPID_KEY`. Add the Netlify domain to Firebase Authentication's authorized domains.
+
+The Netlify build script installs the pinned Flutter SDK if it is not already cached. After connecting the repository and setting the Firebase variable, trigger a new deploy; an existing Netlify 404 page will remain until Netlify publishes a successful build.
+
 Build a test APK:
 
 ```powershell
